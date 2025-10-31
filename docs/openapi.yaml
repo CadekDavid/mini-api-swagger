@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: Mini API s Swagger UI
+  version: 1.0.0
+  description: >
+    Jednoduché API pro účely zadání. Swagger UI je dostupný na `/api`.
+servers:
+  - url: http://localhost:3000
+paths:
+  /health:
+    get:
+      summary: Healthcheck
+      description: Rychlá kontrola, že server běží.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  ts:
+                    type: string
+                    format: date-time
+  /posts:
+    get:
+      summary: Seznam postů
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+    post:
+      summary: Vytvořit post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostInput'
+      responses:
+        '201':
+          description: Vytvořeno
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+components:
+  schemas:
+    Post:
+      type: object
+      properties:
+        _id: { type: string }
+        title: { type: string }
+        body: { type: string }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    PostInput:
+      type: object
+      required: [title, body]
+      properties:
+        title: { type: string, example: "Hello" }
+        body: { type: string, example: "World" }
