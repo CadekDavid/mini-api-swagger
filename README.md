@@ -29,7 +29,7 @@ a zobrazit dokumentaci pomocí **Swagger UI** na adrese **`/api`**.
 
 ### 1️⃣ Stažení projektu
 ```bash
-git clone https://github.com/TVOJE_UZIVATELSKE_JMENO/mini-api-swagger.git
+git clone https://github.com/CadekDavid/mini-api-swagger.git
 cd mini-api-swagger
 npm install
 npm run dev
