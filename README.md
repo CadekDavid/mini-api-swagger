@@ -1,25 +1,38 @@
-# Mini API s Swagger UI
+# 🧩 Mini API s Swagger UI
 
-Jednoduchá ukázková API aplikace (Node.js + Express) se Swagger dokumentací na **`/api`**.
+Jednoduchá ukázková aplikace v **Node.js + Express**, která ukazuje, jak vytvořit a otestovat REST API  
+a zobrazit dokumentaci pomocí **Swagger UI** na adrese **`/api`**.
 
-## 1) Popis API
+---
 
-- **Healthcheck**: `GET /health` – rychlá kontrola běhu aplikace.
-- **Posts**: `GET /posts`, `POST /posts` – demo endpointy (MongoDB).
+## 🚀 Co aplikace umí
 
-> Plná interaktivní dokumentace je dostupná na **`/api`** (Swagger UI).
+| Endpoint | Metoda | Popis |
+|-----------|--------|--------|
+| `/health` | GET | Vrátí informaci, že server běží |
+| `/posts`  | GET | Vrátí všechny uložené příspěvky z databáze |
+| `/posts`  | POST | Vloží nový příspěvek |
+| `/api`    | - | Swagger dokumentace (interaktivní testování API) |
 
-## 2) Požadavky na software
+---
 
-- Node.js **18+** (doporučeno LTS)
-- NPM (součástí Node.js)
-- (Volitelné) Docker + Docker Compose pro lokální MongoDB
-- (Alternativa) Vlastní běžící MongoDB (výchozí URL `mongodb://localhost:27017/blog`)
+## ⚙️ Požadavky
 
-## 3) Jak projekt spustit lokálně
+- **Node.js** 18 nebo novější  
+- **npm** (součástí Node.js)  
+- **MongoDB** – buď lokálně, nebo přes Docker  
+- (volitelné) **Docker Desktop** + **Docker Compose**
 
-### Varianta A – s Dockerem (doporučeno pro Mongo)
-1. Spusť MongoDB:
-   ```bash
-   docker compose up -d
+---
+
+## 🪄 Jak projekt spustit lokálně
+
+### 1️⃣ Stažení projektu
+```bash
+git clone https://github.com/TVOJE_UZIVATELSKE_JMENO/mini-api-swagger.git
+cd mini-api-swagger
+npm install
+npm run dev
+node src/index.js
+
 
